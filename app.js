@@ -16,6 +16,7 @@ const KEY = '15674931-a9d714b6e9d654524df198e00&q';
 
 // show images 
 const showImages = (images) => {
+ 
   imagesArea.style.display = 'block';
   gallery.innerHTML = '';
   // show gallery title
@@ -30,12 +31,14 @@ const showImages = (images) => {
     </div>
   </div>`
     gallery.appendChild(div)
-  })}
+  })
+  showError(true)
+}
  else{
    showError()
+   
  } 
-  
-  spinnerToggle()
+ spinnerToggle()
 }
 
 const getImages = (query) => {
@@ -145,7 +148,11 @@ const spinnerToggle = ()=>{
   spinner.classList.toggle('d-none')
 }
 
-const showError=()=>{
+const showError=(add)=>{
   const errorMsg = document.getElementById('error-msg')
+  if(add){
+  errorMsg.classList.add('d-none')}
+ else{
   errorMsg.classList.remove('d-none')
+  }
 }
