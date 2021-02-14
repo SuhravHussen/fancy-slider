@@ -16,7 +16,6 @@ const KEY = '15674931-a9d714b6e9d654524df198e00&q';
 
 // show images 
 const showImages = (images) => {
- 
   imagesArea.style.display = 'block';
   gallery.innerHTML = '';
   // show gallery title
@@ -24,8 +23,8 @@ const showImages = (images) => {
   galleryHeader.style.display = 'flex';
   images.forEach(image => {
     let div = document.createElement('div');
-    div.innerHTML =`<div class="card" style="width: 15rem; height:20rem">
-    <img src="${image.webformatURL}" class="card-img-top"  onclick=selectItem(event,"${image.webformatURL}") alt="${image.tags}">
+    div.innerHTML =`<div class="card" style="width: 15rem; height:20rem ; margin:10px">
+    <img src="${image.webformatURL}" class="card-img-top" style="height:80%;" onclick=selectItem(event,"${image.webformatURL}") alt="${image.tags}">
     <div class="card-body">
       <p class="card-text">LIKES:${image.likes}</p>
     </div>
@@ -35,8 +34,7 @@ const showImages = (images) => {
   showError(true)
 }
  else{
-   showError()
-   
+   showError() 
  } 
  spinnerToggle()
 }
@@ -52,8 +50,6 @@ const getImages = (query) => {
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
-  // element.classList.add('added');
- 
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
@@ -62,6 +58,7 @@ const selectItem = (event, img) => {
   }
   element.classList.toggle('added');
 }
+
 var timer
 const createSlider = () => {
   // check slider image length
